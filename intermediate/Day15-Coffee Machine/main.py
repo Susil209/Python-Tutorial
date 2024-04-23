@@ -34,7 +34,7 @@ profit = 0.0
 isOff = False
 
 
-# TODO: 2- Check resource sufficient
+# Check resource sufficient
 def check_resources(order_ingredients):
     for item in order_ingredients:
         if order_ingredients[item] >= resources[item]:
@@ -44,7 +44,7 @@ def check_resources(order_ingredients):
             return True
 
 
-# TODO-3 Process coins
+# Process coins
 def insert_coins():
     print("Please enter coins.")
     quarters = int(input("How many quarters?:"))
@@ -55,7 +55,7 @@ def insert_coins():
     return price
 
 
-# TODO-4 Check transaction successful
+# Check transaction successful
 def payment_successful(money_received, cost_of_coffee):
     if money_received >= cost_of_coffee:
         change_offered = round(money_received - cost_of_coffee, 2)
@@ -68,7 +68,7 @@ def payment_successful(money_received, cost_of_coffee):
         return False
 
 
-# TODO-5 Make coffee
+# Make coffee
 def make_coffee(drink_name, ingredients):
     for item in ingredients:
         resources[item] -= ingredients[item]
@@ -76,7 +76,7 @@ def make_coffee(drink_name, ingredients):
 
 
 while not isOff:
-    # TODO: 1 - Print report of all the ingredients for coffee
+    # Print report of all the ingredients for coffee
     user_input = input("What would you like? (espresso/latte/cappuccino):")
     if user_input == "off":
         isOff = True
