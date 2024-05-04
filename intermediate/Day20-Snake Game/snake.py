@@ -27,6 +27,13 @@ class Snake:
         new_snake.goto(pos)
         self.snake_body.append(new_snake)
 
+    def reset(self):
+        for body in self.snake_body:
+            body.goto(1000, 1000)  # send snake to out of screen
+        self.snake_body.clear()
+        self.create_snake()
+        self.head = self.snake_body[0]
+
     # Extend the snake body segment
     def extend_body(self):
         # We hold the last segment element and get its position
