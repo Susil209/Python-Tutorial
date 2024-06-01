@@ -31,17 +31,25 @@ while len(guessed_states) < len(list_of_states):
                                     prompt='Enter the next state:').title()  # title case
 
     # exit out of the loop
+    # if answer_state == 'Exit':
+    #     missed_states = []
+    #     for state in list_of_states:
+    #         if state not in guessed_states:
+    #             missed_states.append(state)
+    #
+    #     # print(missed_states)
+    #     # create a new dataframe for missing states
+    #     new_df = pd.DataFrame(missed_states)
+    #
+    #     # convert to csv
+    #     new_df.to_csv("states_to_learn.csv")
+    #     break
+
+    # using list comprehension
     if answer_state == 'Exit':
-        missed_states = []
-        for state in list_of_states:
-            if state not in guessed_states:
-                missed_states.append(state)
-
-        # print(missed_states)
-        # create a new dataframe for missing states
+        missed_states = [state for state in list_of_states if state not in guessed_states]
+        print(missed_states)
         new_df = pd.DataFrame(missed_states)
-
-        # convert to csv
         new_df.to_csv("states_to_learn.csv")
         break
 
